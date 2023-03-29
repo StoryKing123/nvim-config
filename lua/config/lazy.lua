@@ -10,12 +10,18 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+
     -- the colorscheme should be available when starting Neovim
     {
+        'nvim-tree/nvim-tree.lua',
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("plugins.nvim-tree") end
+    }, {
         "folke/tokyonight.nvim",
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
+            require("config.tokyonight").config()
             -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
         end
@@ -69,5 +75,5 @@ require("lazy").setup({
     -- local plugins can also be configure with the dev option.
     -- This will use {config.dev.path}/noice.nvim/ instead of fetching it from Github
     -- With the dev option, you can easily switch between the local and installed version of a plugin
-    {"folke/noice.nvim", dev = true}
+    {"folke/noice.nvim"}
 })
