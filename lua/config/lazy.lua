@@ -11,6 +11,10 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
 
+
+
+
+    
     -- the colorscheme should be available when starting Neovim
     {
         'nvim-tree/nvim-tree.lua',
@@ -21,7 +25,7 @@ require("lazy").setup({
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            require("config.tokyonight").config()
+            require("plugins.tokyonight").config()
             -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
         end
@@ -48,6 +52,15 @@ require("lazy").setup({
         dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer"},
         config = function()
             -- ...
+        end
+    },
+
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("plugins.nvim-surround")
         end
     },
 
