@@ -1,6 +1,15 @@
 local config = require("config")
 local keys = config.keys
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- 复用 opt 参数
+local opt = {noremap = true, silent = true }
+
+local map = vim.api.nvim_set_keymap
+
+
 local M = {}
 local mode_adapters = {
     insert_mode = "i",
@@ -12,8 +21,6 @@ local mode_adapters = {
     operator_pending_mode = "o"
 }
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 keymap("n", keys.n_save, "<CMD>w<CR>")
 keymap({ mode_adapters.normal_mode, mode_adapters.visual_mode }, keys.n_v_5j, "5j")
 keymap({
@@ -39,3 +46,13 @@ keymap("n", skey.width_increase, ":vertical resize +10<CR>")
 keymap("n", skey.height_decrease, ":horizontal resize -10<CR>")
 keymap("n", skey.height_increase, ":horizontal resize +10<CR>")
 keymap("n", skey.size_equal, "<C-w>=")
+
+
+
+-- local tkey = config.cmp.keys
+-- keymap("n", tkey.split, "<CMD>tab split<CR>")
+-- keymap("n", tkey.close, "<CMD>tabclose<CR>")
+-- keymap("n", tkey.next, "<CMD>tabnext<CR>")
+-- keymap("n", tkey.prev, "<CMD>tabprev<CR>")
+-- keymap("n", tkey.first, "<CMD>tabfirst<CR>")
+-- keymap("n", tkey.last, "<CMD>tablast<CR>")

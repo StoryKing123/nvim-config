@@ -64,6 +64,25 @@ local UserConfig = {
         ---@type  'defalut' | 'minimal' | 'simple'
         render = "minimal",
     },
+
+    cmp = {
+        enable = true,
+        keys = {
+            confirm = "<CR>",
+            select_next_item = "<C-j>",
+            select_prev_item = "<C-k>",
+            scroll_doc_up = "<C-u>",
+            scroll_doc_down = "<C-d>",
+            complete = "<A-.>",
+            abort = "<A-,>",
+            -- luasnip
+            snip_jump_next = "<C-l>",
+            snip_jump_prev = "<C-h>",
+            snip_next_choice = "<C-j>",
+            snip_prev_choice = "<C-k>",
+        },
+    },
+    
     nvimTree = {
         enable = true,
         keys = {
