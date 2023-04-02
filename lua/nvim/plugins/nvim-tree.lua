@@ -1,5 +1,5 @@
 local nvimTree = require("nvim-tree")
-local config   = require("config").nvimTree
+local config   = require("nvim.config").nvimTree
 
 
 keymap("n", config.keys.toggle, "<CMD>NvimTreeToggle<CR>")
@@ -98,7 +98,6 @@ nvimTree.setup({
 -- open_on_setup
 -- automatically open the tree when running setup if startup buffer is a directory
 -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
-vim.notify('hello')
 
 
 local function open_nvim_tree(data)

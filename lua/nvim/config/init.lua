@@ -64,7 +64,6 @@ local UserConfig = {
         ---@type  'defalut' | 'minimal' | 'simple'
         render = "minimal",
     },
-
     cmp = {
         enable = true,
         keys = {
@@ -82,7 +81,44 @@ local UserConfig = {
             snip_prev_choice = "<C-k>",
         },
     },
-    
+    frontend = {
+        enable = true,
+        linter = "eslint_d",
+        formatter = "prettier",
+        format_on_save = false,
+        cspell = false,
+        -- extra lsp command provided by typescript.nvim
+        typescript = {
+            keys = {
+                ts_organize = "gs",
+                ts_rename_file = "gR",
+                ts_add_missing_import = "ga",
+                ts_remove_unused = "gu",
+                ts_fix_all = "gf",
+                ts_goto_source = "gD",
+            },
+        },
+    },
+    lsp = {
+        -- jumps to the declaration
+        definition = "gd",
+        -- jumps to the declaration, many servers do not implement this method
+        declaration = false,
+        -- displays hover information
+        hover = "gh",
+        -- lists all the implementations
+        implementation = "gi",
+        -- lists all the references to the symbol
+        references = "gr",
+        rename = "<leader>rn",
+        code_action = "<leader>ca",
+        format = "<leader>f",
+        -- diagnostic
+        open_flow = "gp",
+        goto_next = "gj",
+        goto_prev = "gk",
+        list = "gl",
+    },
     nvimTree = {
         enable = true,
         keys = {

@@ -1,5 +1,5 @@
 local notify = require('notify')
-local config = require('config').notify
+local config = require('nvim.config').notify
 
 notify.setup({
     stages = config.stages,

@@ -1,5 +1,5 @@
 local bufferline = require("bufferline")
-local config = require('config').bufferLine
+local config = require('nvim.config').bufferLine
 
 bufferline.setup({
     options = {

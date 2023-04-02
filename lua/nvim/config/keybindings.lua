@@ -1,4 +1,4 @@
-local config = require("config")
+local config = require("nvim.config")
 local keys = config.keys
 
 vim.g.mapleader = " "

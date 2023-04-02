@@ -11,20 +11,47 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
     { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "nvim-lua/plenary.nvim" }
-    ,
+    { "nvim-lua/plenary.nvim" },
+    { "neovim/nvim-lspconfig" },
+
+
+    -- Completion engine
+    {
+        "hrsh7th/nvim-cmp"
+    },
+    -- Snippet engine
+    { "L3MON4D3/LuaSnip" },
+    { "saadparwaiz1/cmp_luasnip" },
+    -- Completion sources
+    { "hrsh7th/cmp-vsnip" },
+    { "hrsh7th/cmp-nvim-lsp" },                -- { name = nvim_lsp }
+    { "hrsh7th/cmp-buffer" },                  -- { name = 'buffer' },
+    { "hrsh7th/cmp-path" },                    -- { name = 'path' }
+    { "hrsh7th/cmp-cmdline" },                 -- { name = 'cmdline' }
+    { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
+    -- common snippets
+    { "rafamadriz/friendly-snippets" },
+
+    -- UI improvement
+    { "onsails/lspkind-nvim" },
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+        config = function() require('nvim.plugins.mason') end
+    },
+    { "williamboman/mason-lspconfig.nvim" },
     { "MunifTanjim/nui.nvim" },
     {
         'rcarriga/nvim-notify',
         config = function()
-            require('plugins.nvim-notify')
+            require('nvim.plugins.nvim-notify')
         end
     },
 
     -- the colorscheme should be available when starting Neovim
     {
         'nvim-tree/nvim-tree.lua',
-        config = function() require("plugins.nvim-tree") end
+        config = function() require("nvim.plugins.nvim-tree") end
     },
     -- {
     --     "nvim-neo-tree/neo-tree.nvim",
@@ -40,7 +67,7 @@ require("lazy").setup({
     {
         'akinsho/bufferline.nvim',
         config = function()
-            require('plugins.bufferline')
+            require('nvim.plugins.bufferline')
         end,
         version = "v3.*",
         dependencies = 'nvim-tree/nvim-web-devicons'
@@ -50,7 +77,7 @@ require("lazy").setup({
         lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            require("plugins.tokyonight").config()
+            require("nvim.plugins.tokyonight").config()
             -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
         end
@@ -72,7 +99,7 @@ require("lazy").setup({
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
         config = function()
-            require('plugins.dashboard-nvim')
+            require('nvim.plugins.dashboard-nvim')
         end,
         dependencies = { { 'nvim-tree/nvim-web-devicons' } }
     },
@@ -82,7 +109,7 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         -- build = ":TSUpdate",
         config = function()
-            require('plugins.treesitter')
+            require('nvim.plugins.treesitter')
         end
     },
 
@@ -109,7 +136,7 @@ require("lazy").setup({
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
         config = function()
-            require("plugins.nvim-surround")
+            require("nvim.plugins.nvim-surround")
         end
     },
 
@@ -125,6 +152,21 @@ require("lazy").setup({
         keys = { { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" } },
         opts = { use_default_keymaps = false, max_join_length = 150 }
     },
+
+    -- telescope
+    -- telescope extensions
+    { "LinArcX/telescope-env.nvim" },
+    { "nvim-telescope/telescope-ui-select.nvim" },
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
+    {
+        "nvim-telescope/telescope.nvim",
+        -- opt = true,
+        -- cmd = "Telescope",
+        config = function()
+            -- require("insis.plugins.telescope")
+        end,
+    },
+
 
     {
         "monaqa/dial.nvim",

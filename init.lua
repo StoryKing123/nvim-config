@@ -1,13 +1,17 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 -- bootstrap lazy.nvim, LazyVim and your plugins
-require('global')
+require('nvim.global')
 
-require("config.lazy")
-require('config.keybindings')
+require("nvim.config.lazy")
+require('nvim.config.keybindings')
+require('nvim.lsp')
+require('nvim.plugins.cmp')
+-- require('nivm')
 
 
 
