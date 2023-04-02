@@ -85,7 +85,7 @@ require("lazy").setup({
 
     -- I have a separate config.mappings file where I require which-key.
     -- With lazy the plugin will be automatically loaded when it is required somewhere
-    { "folke/which-key.nvim",   lazy = true },
+    { "folke/which-key.nvim",              lazy = true },
     {
         "nvim-neorg/neorg",
         -- lazy-load on filetype
@@ -112,6 +112,7 @@ require("lazy").setup({
             require('nvim.plugins.treesitter')
         end
     },
+    { "jose-elias-alvarez/typescript.nvim" },
 
     {
         "dstein64/vim-startuptime",
@@ -131,6 +132,14 @@ require("lazy").setup({
     end
 },
 
+    ------------------ Code formatter -------------------------------------------
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require('nvim.plugins.null-ls')
+        end
+    },
+
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -145,7 +154,7 @@ require("lazy").setup({
 
     -- you can use the VeryLazy event for things that can
     -- load later and are not important for the initial UI
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
+    { "stevearc/dressing.nvim",                      event = "VeryLazy" },
 
     {
         "Wansmer/treesj",
@@ -163,7 +172,7 @@ require("lazy").setup({
         -- opt = true,
         -- cmd = "Telescope",
         config = function()
-            -- require("insis.plugins.telescope")
+            require("nvim.plugins.telescope")
         end,
     },
 

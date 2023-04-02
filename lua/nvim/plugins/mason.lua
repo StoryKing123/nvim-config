@@ -28,53 +28,36 @@ require("mason-lspconfig").setup({
 
 
 local lspconfig = require('lspconfig')
-local common = require('nvim.lsp.common-config')
 
-require("mason-lspconfig").setup_handlers({
-    function(server_name)
-        require("lspconfig")[server_name].setup {}
-    end,
-    -- Next, you can provide targeted overrides for specific servers.
-    ["lua_ls"] = function()
-        lspconfig.lua_ls.setup {
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim" }
-                    }
-                }
-            }
-        }
-    end,
-    ["typescript"] = function()
-        lspconfig.typescript.setup {
-            server = {
-                on_attach = function(client, bufnr)
-                    common.disableFormat(client)
-                    common.keyAttach(bufnr)
-                    --[[
-                      :TypescriptOrganizeImports
-                      :TypescriptRenameFile
-                      :TypescriptAddMissingImports
-                      :TypescriptRemoveUnused
-                      :TypescriptFixAll
-                      :TypescriptGoToSourceDefinition
-                  ]]
-                end
-            }
-        }
-    end
-})
-
-
--- local servers = {
---     typescript = require('nvim.lsp.config.typescript')
--- }
-
--- for name, config in pairs(servers) do
---     if config ~= nil and type(config) == 'table' then
---         config.on_setup(lspconfig[name])
---     else
---         lspconfig[name].setup({})
+-- require("mason-lspconfig").setup_handlers({
+--     function(server_name)
+--         require("lspconfig")[server_name].setup {}
+--     end,
+--     -- Next, you can provide targeted overrides for specific servers.
+--     ["lua_ls"] = function()
+--         lspconfig.lua_ls.setup {
+--             settings = {
+--                 Lua = {
+--                     diagnostics = {
+--                         globals = { "vim" }
+--                     }
+--                 }
+--             }
+--         }
 --     end
--- end
+-- })
+
+
+local servers = require("nvim.env").getLSPConfigMap()
+print(servers);
+for name, config in pairs(servers) do
+    if config ~= nil and type(config) == "table" then
+        -- config file must implement on_setup method
+        config.on_setup(lspconfig[name])
+    else
+        -- or else use default params
+        lspconfig[name].setup({})
+    end
+end
+
+require('nvim.lsp.ui')

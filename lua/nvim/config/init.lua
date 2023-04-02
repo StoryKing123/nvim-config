@@ -18,6 +18,26 @@ local UserConfig = {
         fold = { open = "zo", close = "zc" },
         terminal_to_normal = "<Esc>"
     },
+    telescope = {
+        enable = true,
+        keys = {
+            find_files = { "<C-p>", "ff" },
+            live_grep = "<C-f>",
+            -- super find  "xx" -tmd ---@see telescope-live-grep-args.nvim
+            live_grep_args = "sf",
+            -- up and down
+            move_selection_next = "<C-j>",
+            move_selection_previous = "<C-k>",
+            -- history
+            cycle_history_next = "<Down>",
+            cycle_history_prev = "<Up>",
+            -- close window
+            close = "<esc>",
+            -- scrolling in preview window
+            preview_scrolling_up = "<C-u>",
+            preview_scrolling_down = "<C-d>",
+        },
+    },
     s_windows = {
         keys = {
             split_vertically = "sv",
@@ -98,6 +118,19 @@ local UserConfig = {
                 ts_goto_source = "gD",
             },
         },
+    },
+    lua = {
+        enable = true,
+        lsp = "lua_ls",
+        formatter = "stylua",
+        format_on_save = true,
+    },
+    rust = {
+        enable = true,
+        lsp = "rust_analyzer",
+        -- rustup component add rustfmt
+        formatter = "rustfmt",
+        format_on_save = false,
     },
     lsp = {
         -- jumps to the declaration
