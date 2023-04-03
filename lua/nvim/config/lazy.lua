@@ -87,6 +87,15 @@ require("lazy").setup({
     -- With lazy the plugin will be automatically loaded when it is required somewhere
     { "folke/which-key.nvim" },
 
+    -- nvim-autopairs
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim.plugins.autopairs")
+        end,
+    },
+
+
     {
         "nvim-neorg/neorg",
         -- lazy-load on filetype
@@ -208,7 +217,10 @@ require("lazy").setup({
     -- local plugins can also be configure with the dev option.
     -- This will use {config.dev.path}/noice.nvim/ instead of fetching it from Github
     -- With the dev option, you can easily switch between the local and installed version of a plugin
-    { "folke/noice.nvim",config = function ()
-        require('nvim.plugins.noice')
-    end }
+    {
+        "folke/noice.nvim",
+        config = function()
+            require('nvim.plugins.noice')
+        end
+    }
 })
