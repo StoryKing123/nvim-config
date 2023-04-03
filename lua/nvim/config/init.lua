@@ -75,6 +75,19 @@ local UserConfig = {
             close_pick = "<leader>bp",
         },
     },
+    comment = {
+        enable = true,
+        -- normal mode
+        toggler = {
+            line = "gcc", -- line comment
+            block = "gbc", -- block comment
+        },
+        -- visual mode
+        opleader = {
+            line = "gc",
+            bock = "gb",
+        },
+    },
     notify = {
         enable = true,
         ---@type number in millionsecond

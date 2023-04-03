@@ -23,6 +23,24 @@ telescope.setup({
                 [config.keys.preview_scrolling_down] = "preview_scrolling_down",
             },
         },
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden"
+        },
+        file_ignore_patterns = {
+            "node_modules",
+            ".work/.*",
+            ".cache/.*",
+            ".idea/.*",
+            "dist/.*",
+            ".git/.*"
+        }
     },
     pickers = {
         find_files = {

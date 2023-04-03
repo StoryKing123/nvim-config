@@ -85,7 +85,8 @@ require("lazy").setup({
 
     -- I have a separate config.mappings file where I require which-key.
     -- With lazy the plugin will be automatically loaded when it is required somewhere
-    { "folke/which-key.nvim",              lazy = true },
+    { "folke/which-key.nvim" },
+
     {
         "nvim-neorg/neorg",
         -- lazy-load on filetype
@@ -93,6 +94,8 @@ require("lazy").setup({
         -- options for neorg. This will automatically call `require("neorg").setup(opts)`
         opts = { load = { ["core.defaults"] = {} } }
     },
+    -- leaf
+    {},
 
     --dashboard
     {
@@ -131,13 +134,21 @@ require("lazy").setup({
         -- ...
     end
 },
-
     ------------------ Code formatter -------------------------------------------
     {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
             require('nvim.plugins.null-ls')
         end
+    },
+
+    -- Comment
+    { "JoosepAlviste/nvim-ts-context-commentstring" },
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("nvim.plugins.comment")
+        end,
     },
 
     {
@@ -185,11 +196,19 @@ require("lazy").setup({
     }, -- local plugins need to be explicitly configured with dir
     { dir = "~/projects/secret.nvim" },
 
+    {
+        "ggandor/leap.nvim",
+        config = function()
+            require('nvim.plugins.leap')
+        end
+    },
     -- you can use a custom url to fetch a plugin
     -- { url = "git@github.com:folke/noice.nvim.git" },
 
     -- local plugins can also be configure with the dev option.
     -- This will use {config.dev.path}/noice.nvim/ instead of fetching it from Github
     -- With the dev option, you can easily switch between the local and installed version of a plugin
-    -- { "folke/noice.nvim" }
+    { "folke/noice.nvim",config = function ()
+        require('nvim.plugins.noice')
+    end }
 })
