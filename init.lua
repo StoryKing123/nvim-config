@@ -3,10 +3,10 @@
 require('nvim.basic')
 require('nvim.global')
 require('nvim.env').init(require('nvim.config'))
-require("nvim.config.lazy")
+require("nvim.plugins")
 require('nvim.config.keybindings')
 require('nvim.lsp')
-require('nvim.plugins.cmp')
+-- require('nvim.plugins.cmp')
 -- require('nivm')
 
 

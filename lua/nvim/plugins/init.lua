@@ -87,6 +87,17 @@ require("lazy").setup({
     -- With lazy the plugin will be automatically loaded when it is required somewhere
     { "folke/which-key.nvim" },
 
+
+    --trouble
+    {
+        "folke/trouble.nvim",
+        lazy = true,
+        cmd = { "TroubleToggle", "Trouble", "TroubleRefresh" },
+        config = function()
+            require('nvim.plugins.trouble')
+        end,
+    },
+
     -- nvim-autopairs
     {
         "windwp/nvim-autopairs",
@@ -140,6 +151,7 @@ require("lazy").setup({
     -- dependencies are always lazy-loaded unless specified otherwise
     dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer" },
     config = function()
+        require('nvim.plugins.cmp')
         -- ...
     end
 },
