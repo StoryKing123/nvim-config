@@ -13,6 +13,7 @@ require("lazy").setup({
     { "nvim-tree/nvim-web-devicons", lazy = true },
     { "nvim-lua/plenary.nvim" },
     { "neovim/nvim-lspconfig" },
+    { "tpope/vim-repeat" },
 
 
     -- Completion engine
