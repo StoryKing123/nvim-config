@@ -8,6 +8,7 @@ require('nvim.config.keybindings')
 require('nvim.lsp')
 -- require('nvim.plugins.cmp')
 -- require('nivm')
+-- print hello
 
 
 
