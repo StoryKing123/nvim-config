@@ -215,7 +215,7 @@ require("lazy").setup({
 
   -- copilot
   {
-    "github/copilot.vim"
+    "github/copilot.vim",
   },
 
   {
@@ -231,6 +231,11 @@ require("lazy").setup({
     config = function()
       require("nvim.plugins.leap")
     end,
+  },
+  {
+    "HiPhish/nvim-ts-rainbow2",
+    lazy = true,
+    event = { "User FileOpened" },
   },
   -- you can use a custom url to fetch a plugin
   -- { url = "git@github.com:folke/noice.nvim.git" },
