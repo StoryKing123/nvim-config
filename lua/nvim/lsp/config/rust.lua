@@ -29,7 +29,7 @@ return {
       rust_tools.setup({
         server = opts,
         -- NOTICE: require dap 
-        dap = require("nvim.dap.nvim-dap.config.rust"),
+        -- dap = require("nvim.dap.nvim-dap.config.rust"),
       })
     end
   end,

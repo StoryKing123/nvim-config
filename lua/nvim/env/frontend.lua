@@ -57,7 +57,7 @@ return function(config)
                             "less",
                             "html",
                             "graphql",
-                            -- "json",
+                            "json",
                             -- "yaml",
                             -- "markdown",
                         },

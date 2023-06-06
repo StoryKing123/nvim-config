@@ -23,7 +23,8 @@ treesitter.setup({
     enable = true,
   },
   rainbow = {
-    enable = true,
+    -- enable = true,
+    enable =  false,
     -- list of languages you want to disable the plugin for
     -- disable = { 'jsx', 'cpp' },
     -- Which query to use for finding delimiters

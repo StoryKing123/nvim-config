@@ -49,7 +49,7 @@ local lspconfig = require('lspconfig')
 
 
 local servers = require("nvim.env").getLSPConfigMap()
-print(servers);
+-- print(servers);
 for name, config in pairs(servers) do
     if config ~= nil and type(config) == "table" then
         -- config file must implement on_setup method

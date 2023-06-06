@@ -10,11 +10,20 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+  -- pre plugins
   { "nvim-tree/nvim-web-devicons", lazy = true },
   { "nvim-lua/plenary.nvim" },
   { "neovim/nvim-lspconfig" },
   { "tpope/vim-repeat" },
+  { "moll/vim-bbye" },
 
+  -- status bar
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("nvim.plugins.lualine")
+    end,
+  },
   -- Completion engine
   {
     "hrsh7th/nvim-cmp",
@@ -237,6 +246,22 @@ require("lazy").setup({
     lazy = true,
     event = { "User FileOpened" },
   },
+
+  -- outline
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("nvim.plugins.symbols-outline")
+    end,
+  },
+
+  -- Language enhancement
+  -- Lua
+  { "folke/neodev.nvim" },
+  -- JSON
+  { "b0o/schemastore.nvim" },
+  -- Rust
+  { "simrat39/rust-tools.nvim" },
   -- you can use a custom url to fetch a plugin
   -- { url = "git@github.com:folke/noice.nvim.git" },
 
